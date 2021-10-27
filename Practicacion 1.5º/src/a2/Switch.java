@@ -3,7 +3,7 @@ package a2;
 public class Switch {
 
 	public static void main(String[] args) {
-		int x = 1;
+		int x = 4;
 		
 		switch(x) {
 		case 1:
