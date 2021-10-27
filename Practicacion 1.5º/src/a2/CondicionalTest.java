@@ -6,7 +6,7 @@ public class CondicionalTest {
 		
 		int x = 4 , z = 6;
 		
-		x = x + 2;
+		x = x + 4;
 		
 		if (x==z)
 		{
