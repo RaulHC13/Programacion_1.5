@@ -4,11 +4,11 @@ import java.util.regex.Pattern;
 
 public class Telefono {
 	
-	private static final String ER_TELEFONO = "([0-9]{9})";//???
+	private static final String ER_TELEFONO = "([6|9][0-9]{8})";//???
 	
 	public static void main(String[] args) {
 		
-		String telefono = "664851129";
+		String telefono = "676851232";
 		
 		
 		if ((Pattern.matches(ER_TELEFONO, telefono)) == false) {
