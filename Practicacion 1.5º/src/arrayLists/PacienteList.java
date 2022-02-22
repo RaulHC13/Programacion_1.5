@@ -1,7 +1,9 @@
 package arrayLists;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
 import utilidades.Entrada;
 
 public class PacienteList {
@@ -14,6 +16,11 @@ public class PacienteList {
 		System.out.println(pacienteList.get(0));
 		System.out.println(pacienteList.get(1));
 		System.out.println(pacienteList);
+		Iterator<Paciente> it = pacienteList.iterator();
+		
+		while(it.hasNext()) {
+			System.out.println(it.next());
+		}
 	}
 	
 	private static List<Paciente> pacienteList = new ArrayList<>();
@@ -51,7 +58,7 @@ public class PacienteList {
 			 bucle = true;
 		 }
 		 }
-		return pacienteLeer;
+		 return pacienteLeer;
 	}
 
 }
