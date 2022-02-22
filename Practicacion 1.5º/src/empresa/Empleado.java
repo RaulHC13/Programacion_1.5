@@ -1,85 +1,59 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package empresa;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author arubio
  */
-public class Empleado extends Persona 
-{
-    private double sueldo;
+public class Empleado {
 
-    public Empleado(double sueldo) 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) 
     {
-        super();
-        setSueldo(sueldo);
-    }
-    
-    public Empleado(double sueldo, String nombre, int edad){
-        super(nombre, edad);
-        setSueldo(sueldo);
-    }
-    
-    public Empleado(Empleado empleado)
-    {
-        if (empleado==null)
-            throw new IllegalArgumentException("No se puede copiar un empleado nulo.");
-	
-        setNombre(empleado.getNombre());
-        setEdad(empleado.getEdad());
-        setSueldo(empleado.getSueldo());
-    }
-    
-    public double getSueldo() {
-        return sueldo;
-    }
-    public void setSueldo(double sueldo) {
-        if (sueldo<0)
-            throw new IllegalArgumentException("El sueldo de un empleado no puede ser negativo");
+        // TODO code application logic here
+        Asalariado a1=new Asalariado("Carmen López","11111111A",25,17,"RRHH");
+        Asalariado a2=new Asalariado("Jesús Pérez","22222222B",35,20,"Informática");
         
-        this.sueldo = sueldo;
-    }
-    
-    @Override
-    public String toString(){
-        return super.toString()
-                + " Sueldo Bruto: $ " + sueldo
-                + " Sueldo Liquido: $ " + calcularSalarioNeto();
-    }
-    
-    public double calcularSalarioNeto(){
-        return sueldo - 0.11 * sueldo - 0.03 * sueldo; 
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 71 * hash + (int) (Double.doubleToLongBits(this.sueldo) ^ (Double.doubleToLongBits(this.sueldo) >>> 32));
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
+        AsalariadoDistribucion ed1=new AsalariadoDistribucion("Laura Martínez",
+                "33333333C",40,25,"Madrid","RRHH");
+        
+        AsalariadoDistribucion ed2=new AsalariadoDistribucion("Alfonso Carrasco", "44444444D", 
+                31, 18, "Andalucía", "Informática");
+        
+        AsalariadoProduccion ep1=new AsalariadoProduccion("Jaime Sánchez", "55555555E",
+                23, 16, "Nocturno", "Mantenimiento");
+        
+        AsalariadoProduccion ep2=new AsalariadoProduccion("Susana Gómez", "77777777F", 
+                30, 24, "Diurno", "Transporte");
+        
+        List<Asalariado> trabajadores=new ArrayList<>();
+        
+        trabajadores.add(a1);
+        trabajadores.add(a2);
+        trabajadores.add(ed1);
+        trabajadores.add(ed2);
+        trabajadores.add(ep1);
+        trabajadores.add(ep2);
+        
+        for(Asalariado a:trabajadores)
+        {
+            
+            /*if (a instanceof AsalariadoDistribucion)            
+                System.out.println("\n\nASALARIADO DE DISTRIBUCIÓN\n--------------------------");                          
+            else if (a instanceof AsalariadoProduccion)
+                System.out.println("\n\nASALARIADO DE PRODUCCIÓN\n------------------------");
+            else 
+                System.out.println("\n\nASALARIADO\n----------");*/
+            
+            if (a instanceof AsalariadoDistribucion)
+                System.out.println(((AsalariadoDistribucion) a).mensaje());
+            System.out.println(a);
+            
         }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Empleado other = (Empleado) obj;
-        if (Double.doubleToLongBits(this.sueldo) != Double.doubleToLongBits(other.sueldo)) {
-            return false;
-        }
-        return true;
     }
-    
     
 }
